@@ -1,13 +1,356 @@
-body {
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  background-color: #efefef;
+}
+
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  position: absolute;
+  max-width: 800px;
+  top:0px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #a3a1a1;
+  box-shadow: 0px 0px 15px gray;
+}
+
+.Header{
+  width: 100%;
+  background-color: #66d8f5;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Footer{
+  width: 100%;
+  background-color: #032e38;
+  padding: 0.75rem;
+  display: grid;
+  place-content: center;
+  display: flex;
+  align-items: center;
+  color:#eee;
+  position: absolute;
+  bottom: 0;
+}
+
+.Header h1 {
+  font-size: 1.5rem;
+}
+
+.Nav {
+  position: sticky;
+  top:0px !important;
+  z-index: 1000; /* Ensures the navigation bar stays on top of other content */
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+
+.Nav ul {
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.Nav li {
+  padding: 1rem;
+}
+
+.Nav li:hover, 
+.Nav li:focus {
+  padding: 1rem;
+}
+
+.Nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.Nav li:hover, 
+.Nav li:focus, 
+.Nav li:hover a, 
+.Nav li:focus a  {
+  background-color: #eee;
+  color: #333;
+}
+
+.Nav li:hover a, 
+.Nav li:focus a {
+  cursor: pointer;
+}
+
+.Home, .NewPost, .PostPage, .About, .Missing {
+  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+
+.Home a {
+  text-decoration: none;
+}
+
+.Home  a, 
+.Home  a:visited {
+  color: #000;
+}
+
+.itemImage{
+max-width: 400px;
+}
+
+.itemCard{
+  padding:1em; 
+  background-color: #ffffff;
+  margin:1em;
+  border: 1px solid #a3a1a1;
+  box-shadow: 0px 0px 15px gray;
+
+}
+
+.itemDescription{
+  padding:1em;
+  background-color: #ffffff;
+  margin-bottom:1em; 
+  
+}
+.itemTitle{
+  margin-bottom:1em; 
+  font-size:16px; 
+  font-weight: bold; 
+  margin:1em;
+  max-width: 30%;
+}
+
+.addToCart{
+  padding:5px; 
+  border-radius: 5px;
+}
+
+.cardFooter{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.cartImage{
+  max-width: 125px;
+}
+
+.cartList{
+  list-style-type: none;
+  
+
+}
+
+.cartItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding:1em;
+  background-color: #ffffff;
+  margin-bottom:1em; 
+}
+
+.round-button {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 50%; /* Make it round */
+  padding: 15px 30px; /* Add some padding */
+  font-size: 16px; /* Set the font size */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  outline: none; /* Remove outline */
+  transition: transform 0.2s; /* Add transition for smooth scaling */
+}
+
+/* Scale down slightly when pressed */
+.round-button:active {
+  transform: scale(0.90); /* Scale down slightly */
+}
+
+.deleteButton {
+  background-color: #af534c; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Make it round */
+  padding: 15px 30px; /* Add some padding */
+  font-size: 16px; /* Set the font size */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  outline: none; /* Remove outline */
+  transition: transform 0.2s; /* Add transition for smooth scaling */
+}
+
+/* Scale down slightly when pressed */
+.deleteButton:active {
+  transform: scale(0.90); /* Scale down slightly */
+}
+
+@media only screen and (min-width: 610px) {
+  html {
+    font-size: 22px;
+  }
+
+  .Header h1 {
+    font-size: 2rem;
+  }
+
+  .Nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Nav ul {
+    text-align: right;
+  }
+
+  .Nav li:hover, 
+  .Nav li:focus, 
+  .Nav li:hover a, 
+  .Nav li:focus a  {
+    background-color: #eee;
+    color: #333;
+  }
+
+ 
+}
+
+.searchForm label {
+  position: absolute;
+  left: -99999px;
+}
+
+.searchForm input[type='text'] {
+  flex-grow: 1;
+  max-width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+
+.cartBadge{
+  background-color: #af534c;
+  padding:5px;
+  border-radius: 50%;
+  width: 35px;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  left: -27px;
+  top: -15px;
+
+}
+
+.buttonRow{
+  display: flex;
+  justify-content: center;
+  height:30px;
+  margin-bottom: 3px;
+}
+.upButton{
+  width:100%;
+  height:100%;
+  border-radius: 0;
+  border-width: 1px;
+  
+  border: 1px solid rgb(143, 141, 141);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.downButton{
+  width:100%;
+  height:100%;
+  border-radius: 0;
+  border-width: 1px;
+  border: 1px solid rgb(143, 141, 141);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.itemCounter{
+  padding-right:3px;
+  padding-left:3px;
+  min-width:30px;
+  height:100%;
+
+}
+
+.itemCounter{
+  flex: 1;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid rgb(143, 141, 141); 
+  border-bottom: 1px solid rgb(143, 141, 141); 
+  margin-bottom: 3px; 
+  
+}
+
+.searchField{
+  
+  height: 28px;
+  width: 50%;
+  border:#000000;
+  border-width: 1px;
+  padding-left: 5px;
+  border-radius: 10px;
+  text-align: center;
+  
+}
+
+.searchForm{
+  position: sticky;
+  z-index: 100;
+}
+
+.ratingText{
+font-size: 16px;
+
+}
+
+.reviewText{
+  font-size: 16px;
 }
