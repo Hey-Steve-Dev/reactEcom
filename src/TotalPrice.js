@@ -4,7 +4,7 @@ const TotalPrice = ({ item, duplicateItems, subTotal, setSubTotal }) => {
   let itemsArray = JSON.parse(duplicateItems);
   let itemCounter = 0;
 
-  // Iterate over the array to count items
+  // Iterate over the duplicate items array to count items that match the id of the item
   itemsArray.forEach((element) => {
     if (element.id === item.id) {
       itemCounter++;
@@ -24,8 +24,10 @@ const TotalPrice = ({ item, duplicateItems, subTotal, setSubTotal }) => {
 
   useEffect(() => {
     // Update the subTotal state whenever the total price changes
-    setSubTotal(prevSubTotal => prevSubTotal + totalPrice);
-  }, [totalPrice, setSubTotal]);
+    setSubTotal(prevSubTotal => [...prevSubTotal, totalPrice]);
+    
+  }, [totalPrice]);
+  
 
 
   return <div>{priceInDollars}</div>;

@@ -71,7 +71,7 @@ return (
       
       
     </ul>
-    <Totals totalItems={cartItems.length} subTotal={subTotal} setSubTotal={setSubTotal}/>
+    <Totals totalItems={cartItems.length} uniqueItems={uniqueItems} duplicateItems={duplicateItems}/>
     
   </div>
 );

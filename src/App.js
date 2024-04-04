@@ -19,7 +19,7 @@ function App() {
   
   const [search, setSearch] = useState('');
 
-  const [subTotal, setSubTotal] = useState(0);
+  const [subTotal, setSubTotal] = useState([]);
 
  
   // set useState for cartItems/setCartItems
